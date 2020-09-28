@@ -44,7 +44,7 @@ public void i_enter_the_first_name_as(String string) throws InterruptedException
 }
 @When("I Enter the last name as {string}")
 public void i_enter_the_last_name_as(String string) {
-	driver.findElement(By.id("registration_lastname")).sendKeys("s5");
+	driver.findElement(By.id("registration_lastname")).sendKeys("s6");
 }
 @When("I Enter the email as {string}")
 public void i_enter_the_email_as(String string) {
@@ -54,7 +54,7 @@ public void i_enter_the_email_as(String string) {
 
 @When("I Enter the user name as {string}")
 public void i_enter_the_user_name_as(String string) {
-	 driver.findElement(By.id("username")).sendKeys("RS_124");
+	 driver.findElement(By.id("username")).sendKeys("RS_125");
 }
 @When("I Enter the pass as {string}")
 public void i_enter_the_pass_as(String string) {
@@ -98,7 +98,7 @@ public void i_click_on_the_login_button() throws InterruptedException {
 }
 @When("I should see the welcome message")
 public void i_should_see_the_welcome_message() throws InterruptedException {
-	String expected = driver.findElement(By.xpath("//p[contains(.,'Hello Radha s2 and welcome,')]")).getText();
+	String expected = driver.findElement(By.xpath("//p[contains(.,'Hello Radha s6 and welcome,')]")).getText();
 	System.out.println(expected);	   
 	Thread.sleep(3000);
 	   
@@ -126,8 +126,12 @@ driver.findElement(By.id("compose_message_title")).sendKeys("Hi For Testing");
 }
 
 @When("I Enter message as {string}")
-public void i_enter_message_as(String string) {
-driver.findElement(By.xpath("/html[1]/body[1]")).sendKeys("Hello  Radha,(/n) This is for Testing (/n)");
+public void i_enter_message_as(String string) throws InterruptedException {
+	driver.switchTo().frame(0);
+	Thread.sleep(3000);
+	driver.findElement(By.xpath("/html[1]/body[1]")).sendKeys("Hello Radha, This is for Testing.");
+	Thread.sleep(5000);
+	driver.switchTo().parentFrame();
 }
 
 @When("I click on send message button")

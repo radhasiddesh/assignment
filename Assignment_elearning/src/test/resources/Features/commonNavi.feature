@@ -32,4 +32,4 @@ Then I should get acknowledgement message
 
 Examples:
 |user				  |pwd		        |
-|RS_121		|varad     |
+|RS_125		|varad     |
